@@ -26,7 +26,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
     var deferred = $q.defer();
 
     function getCurrentWeather(lat, lng) {
-      var api_key = "";
+      var api_key = "YOUR-KEY";
       var url = 'https://api.forecast.io/forecast/' + api_key + '/' + lat + ',' + lng + '?callback=JSON_CALLBACK';
 
       $http.jsonp(url)
