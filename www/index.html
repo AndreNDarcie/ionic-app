@@ -38,8 +38,18 @@
       <ion-header-bar class="bar-stable">
         <h1 class="title">Weather</h1>
       </ion-header-bar>
-      <ion-content>
-        
+      <ion-content class="text-center">
+        <div ng-show="loading">
+            Carregando informações...
+        </div>
+        <div ng-hide="loading">
+            <p>
+                Temperatura: {{toCelsius(weatherInfo.currently.temperature)}}º
+            </p>
+            <p>
+                Sensação térmica: {{toCelsius(weatherInfo.currently.apparentTemperature)}}º
+            </p>
+        </div>
       </ion-content>
     </ion-pane>
   </body>
