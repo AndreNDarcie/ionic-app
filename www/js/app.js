@@ -22,3 +22,25 @@ angular.module('starter', ['ionic', 'ngCordova'])
     }
   });
 })
+.factory('Weather', function($q, $http) {
+  var deferred = $q.defer();
+
+  function getCurrentWeather(lat, lng) {
+    var api_key = "your key api";
+    var url = 'https://api.forecast.io/forecast/' + api_key + '/' + lat +',' + lng + '?callback=JSON_CALLBACK';
+
+    $http.jsonp(url)
+      .success(deferred.resolve)
+      .error(deferred.reject);
+
+    return deferred.promise;
+  }
+
+  return {
+    getCurrentWeather: getCurrentWeather
+  };
+})
+
+.controller('WeatherCtrl', function($scope, Weather) {
+
+});
